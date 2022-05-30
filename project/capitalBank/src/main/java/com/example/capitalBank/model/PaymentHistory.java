@@ -2,74 +2,62 @@ package com.example.capitalBank.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 @Entity
-public class PrimaryTransaction {
+@Table(name = "v_payments")
+public class PaymentHistory {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private Date date;
-    private String description;
-    private String type;
-    private String status;
+    private int payment_id;
+    private int account_id;
+    private int user_id;
+    private String beneficiary;
+    private String beneficiary_acc_no;
     private double amount;
-    private BigDecimal availableBalance;
+    private String status;
+    private String reference_no;
+    private String reason_code;
+    private LocalDateTime created_at;
 
-    public PrimaryTransaction() {}
 
-
-    public PrimaryTransaction(Date date, String description, String type, String status, double amount, BigDecimal availableBalance, Account account) {
-        this.date = date;
-        this.description = description;
-        this.type = type;
-        this.status = status;
-        this.amount = amount;
-        this.availableBalance = availableBalance;
-        this.account = account;
+    public int getPayment_id() {
+        return payment_id;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "primary_account_id")
-    private Account account;
-
-    public Long getId() {
-        return id;
+    public void setPayment_id(int payment_id) {
+        this.payment_id = payment_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public int getAccount_id() {
+        return account_id;
     }
 
-    public Date getDate() {
-        return date;
+    public void setAccount_id(int account_id) {
+        this.account_id = account_id;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public String getDescription() {
-        return description;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getBeneficiary() {
+        return beneficiary;
     }
 
-    public String getType() {
-        return type;
+    public void setBeneficiary(String beneficiary) {
+        this.beneficiary = beneficiary;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public String getBeneficiary_acc_no() {
+        return beneficiary_acc_no;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setBeneficiary_acc_no(String beneficiary_acc_no) {
+        this.beneficiary_acc_no = beneficiary_acc_no;
     }
 
     public double getAmount() {
@@ -80,19 +68,35 @@ public class PrimaryTransaction {
         this.amount = amount;
     }
 
-    public BigDecimal getAvailableBalance() {
-        return availableBalance;
+    public String getStatus() {
+        return status;
     }
 
-    public void setAvailableBalance(BigDecimal availableBalance) {
-        this.availableBalance = availableBalance;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public Account getPrimaryAccount() {
-        return account;
+    public String getReference_no() {
+        return reference_no;
     }
 
-    public void setPrimaryAccount(Account account) {
-        this.account = account;
+    public void setReference_no(String reference_no) {
+        this.reference_no = reference_no;
+    }
+
+    public String getReason_code() {
+        return reason_code;
+    }
+
+    public void setReason_code(String reason_code) {
+        this.reason_code = reason_code;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
     }
 }

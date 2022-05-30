@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public class SavingsTransaction {
+public class TransactionHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,9 +20,9 @@ public class SavingsTransaction {
     @JoinColumn(name = "savings_account_id")
     private SavingsAccount savingsAccount;
 
-    public SavingsTransaction() {}
+    public TransactionHistory() {}
 
-    public SavingsTransaction(Date date, String description, String type, String status, double amount, BigDecimal availableBalance, SavingsAccount savingsAccount) {
+    public TransactionHistory(Date date, String description, String type, String status, double amount, BigDecimal availableBalance, SavingsAccount savingsAccount) {
         this.date = date;
         this.description = description;
         this.type = type;

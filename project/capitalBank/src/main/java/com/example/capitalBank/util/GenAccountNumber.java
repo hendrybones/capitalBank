@@ -1,2 +1,14 @@
-package com.example.capitalBank.util;public class GenAccountNumber {
+package com.example.capitalBank.util;
+
+import java.util.Random;
+
+public class GenAccountNumber {
+    public static int generateAccountNumber(){
+        int accountNumber;
+        Random random = new Random();
+        int bound = 1000;
+        accountNumber = bound * random.nextInt(bound);
+        return accountNumber;
+    }
+    // End Of Generate Account Number Method.
 }
